@@ -15,6 +15,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 #include <unistd.h>
 #include <stdarg.h>
 
+#define VERSION "0.1"
 
 #define BUFSZ (1024 * 1024)
 int debug_flag = 0;
@@ -32,8 +33,16 @@ int main(int argc,char* argv[]){
   int c;
   extern char *optarg;
 
-  while ((c = getopt (argc, argv, "dr:")) != -1){
+  while ((c = getopt (argc, argv, "vhdr:")) != -1){
     switch (c){
+      case 'h':
+        system("man ratepipe");
+        exit(0);
+	break;
+      case 'v':
+        fprintf(stderr,"%s\n",VERSION);
+	exit(0);
+        break;
       case 'd':
         debug_flag += 1;
         break;
