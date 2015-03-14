@@ -1,0 +1,1 @@
+This command accepts data on stdin, and writes it to stdout, and a rate no greater than specified as an option.
